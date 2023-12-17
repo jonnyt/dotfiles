@@ -49,15 +49,6 @@ autoload -Uz compinit && compinit
 # Case insensitive.
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 
-# Nicer prompt.
-autoload -Uz vcs_info
-precmd() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
-
-export PS1=$'\n'"%F{green} %*%F %3~ %F{white}"$'\n'"%~ %F{red}${vcs_info_msg_0_}%f $ "
-zstyle ':vcs_info:git:*' formats '%b '
-
 # Tell homebrew to not autoupdate every single time I run it (just once a week).
 export HOMEBREW_AUTO_UPDATE_SECS=604800
 
