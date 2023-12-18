@@ -86,3 +86,12 @@ eval "$(pyenv init -)"
 
 # Fix for Ansible and MacOS
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# Java home using sdkman
+export JAVA_HOME="/Users/jonathont/.sdkman/candidates/java/current"
+
+# Vault host
+export VAULT_ADDR='https://vault.calnet.berkeley.edu'
+
+# Jump shell
+eval "$(jump shell)"
