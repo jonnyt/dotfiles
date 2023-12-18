@@ -72,3 +72,9 @@ knownrm() {
    sed -i '' "$1d" ~/.ssh/known_hosts
  fi
 }
+
+# iTerm2 shell integration
+if [ -f ~/.iterm2_shell_integration.zsh ]
+then
+  source ~/.iterm2_shell_integration.zsh
+fi
