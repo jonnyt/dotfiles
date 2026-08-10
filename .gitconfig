@@ -1,7 +1,6 @@
 [user]
   name = Jonathon Taylor
-  email = jonathont@berkeley.edu
-[core]
+  email = jonathont@ucsb.edu
   editor = vi
   excludesfile = ~/.gitignore
   autocrlf = input
@@ -13,7 +12,7 @@
 [init]
   defaultBranch = main
 [web]
-  browser = google-chrome
+  browser = firefox
 [credential]
   helper = osxkeychain
 [push]

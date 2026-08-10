@@ -1,19 +1,19 @@
-# Colors.
+# Colors
 unset LSCOLORS
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
 
-# Don't require escaping globbing characters in zsh.
+# Don't require escaping globbing characters in zsh
 unsetopt nomatch
 
-# Enable plugins.
+# Enable plugins
 #plugins=(git brew history kubectl history-substring-search)
 plugins=(git brew history kubectl)
 
-# Custom $PATH with extra locations.
+# Custom $PATH with extra locations
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin:/usr/local/git/bin:$PATH
 
-# Bash-style time output.
+# Bash-style time output
 export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
 
 # Include alias file (if present) containing aliases for ssh, etc.
@@ -22,29 +22,19 @@ then
   source ~/.aliases
 fi
 
-# Set architecture-specific brew share path.
-arch_name="$(uname -m)"
-if [ "${arch_name}" = "x86_64" ]; then
-    share_path="/usr/local/share"
-elif [ "${arch_name}" = "arm64" ]; then
-    share_path="/opt/homebrew/share"
-else
-    echo "Unknown architecture: ${arch_name}"
-fi
-
 # Allow history search via up/down keys.
 #source ${share_path}/zsh-history-substring-search/zsh-history-substring-search.zsh
 #bindkey "^[[A" history-substring-search-up
 #bindkey "^[[B" history-substring-search-down
 
-# Git aliases.
+# Git aliases
 alias gs='git status'
 alias gc='git commit'
 alias gp='git pull --rebase'
 alias gcam='git commit -am'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
-# Completions.
+# Completions
 autoload -Uz compinit && compinit
 # Case insensitive.
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
@@ -79,20 +69,11 @@ then
   source ~/.iterm2_shell_integration.zsh
 fi
 
-# Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 # Fix for Ansible and MacOS
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # Java home using sdkman
-export JAVA_HOME="/Users/jonathont/.sdkman/candidates/java/current"
-
-# Vault host
-export VAULT_ADDR='https://vault.calnet.berkeley.edu'
+export JAVA_HOME="${HOME}/.sdkman/candidates/java/current"
 
 # Jump shell
 eval "$(jump shell)"
@@ -114,9 +95,6 @@ export PAGER=less
 export LESS=-iRFXMx4
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
-
-# Update for running Docker Desktop as non-admin
-export PATH="$HOME/.docker/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
