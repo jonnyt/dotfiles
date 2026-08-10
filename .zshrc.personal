@@ -11,7 +11,7 @@ unsetopt nomatch
 plugins=(git brew history kubectl)
 
 # Custom $PATH with extra locations
-export PATH=$HOME/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/local/git/bin:$PATH
+# See .zprofile.personal
 
 # Bash-style time output
 export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
